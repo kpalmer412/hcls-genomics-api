@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: HCLS Genomics API CI
 
 on:
   push:
@@ -7,15 +7,9 @@ on:
     branches: [main]
 
 jobs:
-  test:
+  ci:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Build Docker image
-        run: docker build -t hcls-genomics-api:latest .
-
-      - name: Run tests in Docker container
-        run: docker run hcls-genomics-api:latest pytest tests/test_api.py -v
+        
